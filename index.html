@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>SeoRii</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>스튜디오 서리</title>
+    <!--Splash-->
+    <script>const initTime = Date.now();</script>
     <style>
         #splashSvg {
             width: 200px;
@@ -15,6 +18,7 @@
             stroke-dasharray: 515;
             stroke-dashoffset: 515;
             animation: logo-dash .3s cubic-bezier(0, .5, .5, 1) forwards;
+            animation-delay: .3s;
             opacity: 0;
         }
 
@@ -22,7 +26,7 @@
             stroke-dasharray: 164;
             stroke-dashoffset: 164;
             animation: logo-dash .1s linear forwards;
-            animation-delay: .1s;
+            animation-delay: .4s;
             opacity: 0;
         }
 
@@ -30,7 +34,7 @@
             stroke-dasharray: 164;
             stroke-dashoffset: 164;
             animation: logo-dash .3s cubic-bezier(0, .2, .2, 1) forwards;
-            animation-delay: .22s;
+            animation-delay: .52s;
             opacity: 0;
         }
 
@@ -38,7 +42,7 @@
             stroke-dasharray: 164;
             stroke-dashoffset: 164;
             animation: logo-dash .1s linear forwards;
-            animation-delay: .3s;
+            animation-delay: .6s;
             opacity: 0;
         }
 
@@ -46,7 +50,7 @@
             stroke-dasharray: 164;
             stroke-dashoffset: 164;
             animation: logo-dash .3s cubic-bezier(0, .2, .2, 1) forwards;
-            animation-delay: .42s;
+            animation-delay: .72s;
             opacity: 0;
         }
 
@@ -72,49 +76,42 @@
             stroke-dashoffset: 0;
             opacity: 0;
             transform-origin: center;
-            animation: loader-turn .8s infinite;
-            animation-timing-function: linear;
+            animation: loader-turn .8s infinite linear .8s, loader-fade .8s forwards linear .8s;
         }
 
         @keyframes loader-turn {
             0% {
                 -webkit-animation-timing-function: linear;
-                opacity: 1;
                 stroke-dashoffset: 180;
                 transform: rotate(-80deg);
             }
 
             25% {
                 -webkit-animation-timing-function: cubic-bezier(.2, 0, 1, .8);
-                opacity: 1;
                 stroke-dashoffset: 180;
                 transform: rotate(-40deg);
             }
 
             45% {
                 -webkit-animation-timing-function: linear;
-                opacity: 1;
                 stroke-dashoffset: 100;
                 transform: rotate(0deg);
             }
 
             55% {
                 -webkit-animation-timing-function: linear;
-                opacity: 1;
                 stroke-dashoffset: 100;
                 transform: rotate(40deg);
             }
 
             75% {
                 -webkit-animation-timing-function: cubic-bezier(0, .2, .8, 1);
-                opacity: 1;
                 stroke-dashoffset: 180;
                 transform: rotate(240deg);
             }
 
             100% {
                 -webkit-animation-timing-function: linear;
-                opacity: 1;
                 stroke-dashoffset: 180;
                 transform: rotate(280deg);
             }
@@ -126,12 +123,12 @@
             height: 0;
             transform: translate(calc(50vw - 50%), calc(50vh - 50%));
             padding-left: 20px;
-            animation: loader-fade 2.4s infinite;
+            animation: loader-color 2.4s infinite;
             animation-timing-function: linear;
         }
 
 
-        @keyframes loader-fade {
+        @keyframes loader-color {
             0% {
                 stroke: #3366FF;
             }
@@ -155,6 +152,16 @@
             }
             100% {
                 stroke: #3366FF;
+            }
+        }
+
+
+        @keyframes loader-fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
             }
         }
     </style>
