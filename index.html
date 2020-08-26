@@ -31,8 +31,8 @@
         }
 
         #logo-l3 {
-            stroke-dasharray: 164;
-            stroke-dashoffset: 164;
+            stroke-dasharray: 188;
+            stroke-dashoffset: 188;
             animation: logo-dash .3s cubic-bezier(0, .2, .2, 1) forwards;
             animation-delay: .52s;
             opacity: 0;
@@ -47,8 +47,8 @@
         }
 
         #logo-l5 {
-            stroke-dasharray: 164;
-            stroke-dashoffset: 164;
+            stroke-dasharray: 188;
+            stroke-dashoffset: 188;
             animation: logo-dash .3s cubic-bezier(0, .2, .2, 1) forwards;
             animation-delay: .72s;
             opacity: 0;
@@ -67,6 +67,88 @@
             100% {
                 stroke-dashoffset: 0;
                 opacity: 1;
+            }
+        }
+
+        #logo-l1.splash-hide {
+            opacity: 1;
+            stroke-dashoffset: 0;
+            animation: logo-dash-hide-l .5s cubic-bezier(.8, 0, 1, .2) forwards;
+        }
+
+        #logo-l2.splash-hide {
+            opacity: 1;
+            stroke-dashoffset: 0;
+            animation: logo-dash-hide-snf .5s cubic-bezier(.75, .06, .7, .17) forwards;
+            animation-delay: .2s;
+        }
+
+        #logo-l3.splash-hide {
+            opacity: 1;
+            stroke-dashoffset: 0;
+            animation: logo-dash-hide-sf .2s linear forwards;
+            animation-delay: .68s;
+        }
+
+        #logo-l4.splash-hide {
+            opacity: 1;
+            stroke-dashoffset: 0;
+            animation: logo-dash-hide-snf .5s cubic-bezier(.75, .06, .7, .17) forwards;
+            animation-delay: .4s;
+        }
+
+        #logo-l5.splash-hide {
+            opacity: 1;
+            stroke-dashoffset: 0;
+            animation: logo-dash-hide-sf .2s linear forwards;
+            animation-delay: .88s;
+        }
+
+        @keyframes logo-dash-hide-l {
+            0% {
+                stroke-dashoffset: 0;
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            98% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: -515;
+            }
+        }
+
+        @keyframes logo-dash-hide-snf {
+            0% {
+                stroke-dashoffset: 0;
+                opacity: 1;
+            }
+            98% {
+                opacity: 1;
+            }
+            100% {
+                stroke-dashoffset: -164;
+                opacity: 0;
+            }
+        }
+
+        @keyframes logo-dash-hide-sf {
+            0% {
+                stroke-dashoffset: 0;
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            98% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: -188;
             }
         }
 
@@ -127,6 +209,10 @@
             animation-timing-function: linear;
         }
 
+        #preloader-cont.hide {
+            animation: loader-fade-out .5s forwards;
+        }
+
 
         @keyframes loader-color {
             0% {
@@ -162,6 +248,15 @@
             }
             100% {
                 opacity: 1;
+            }
+        }
+
+        @keyframes loader-fade-out {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
             }
         }
     </style>
@@ -226,10 +321,23 @@
     </g>
 </svg>
 
-<div id="preloader">
-    <svg class="spinner" height="65px" viewBox="0 0 66 66" width="65px" xmlns="http://www.w3.org/2000/svg">
-        <circle class="circle" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6"></circle>
-    </svg>
+<div id="preloader-cont">
+    <div id="preloader">
+        <svg class="spinner" height="65px" viewBox="0 0 66 66" width="65px" xmlns="http://www.w3.org/2000/svg">
+            <circle class="circle" cx="33" cy="33" fill="none" r="30" stroke-linecap="round" stroke-width="6"></circle>
+        </svg>
+    </div>
 </div>
+
+<script>
+    setTimeout(() => {
+        document.getElementById('logo-l1').classList.add('splash-hide');
+        document.getElementById('logo-l2').classList.add('splash-hide');
+        document.getElementById('logo-l3').classList.add('splash-hide');
+        document.getElementById('logo-l4').classList.add('splash-hide');
+        document.getElementById('logo-l5').classList.add('splash-hide');
+        document.getElementById('preloader-cont').classList.add('hide');
+    }, 5000);
+</script>
 </body>
 </html>
